@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="CommitDialog.authorValues">
+		<item value="pharris050406 &lt;p.harris050406@gmail.com&gt;"/>
 		<item value="pharr &lt;pharr@DESKTOP-BCBO202&gt;"/>
 	</list>
 	<list key="CommitDialog.committerValues">
+		<item value="pharris050406 &lt;p.harris050406@gmail.com&gt;"/>
 		<item value="pharr &lt;pharr@DESKTOP-BCBO202&gt;"/>
 	</list>
 	<list key="EGit.KnownHosts">
@@ -16,8 +18,8 @@
 	</list>
 	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
 		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
-		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="200,200"/>
-		<item key="STAGING_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="500,500"/>
 		<item key="sortItemState" value="false"/>
 	</section>
 	<section name="GitCommitMessageComponent">

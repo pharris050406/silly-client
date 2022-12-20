@@ -115,7 +115,7 @@ public class GuiIngame extends Gui
         int var3 = var2.getScaledWidth();
         int var4 = var2.getScaledHeight();
         this.mc.entityRenderer.setupOverlayRendering();
-        // TODO silly overlay
+//        //TODO silly overlay
         this.mc.fontRendererObj.drawString("silly client" , var3-53.5, 3, 0x000000);
         this.mc.fontRendererObj.drawString("silly client" , var3-53, 2.5, 0xff00e8);
 
@@ -928,7 +928,6 @@ public class GuiIngame extends Gui
         {
             --BossStatus.statusBarTime;
             FontRenderer var1 = this.mc.fontRendererObj;
-            var1.drawString("Quick Place: " + GameSettings.quickPlace, 0, 0, 5);
             ScaledResolution var2 = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
             int var3 = var2.getScaledWidth();
             short var4 = 182;
