@@ -1,0 +1,122 @@
+package net.minecraft.client.gui;
+
+import java.io.IOException;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.settings.GameSettings;
+import optifine.Config;
+import optifine.GuiAnimationSettingsOF;
+import optifine.GuiDetailSettingsOF;
+import optifine.GuiOptionButtonOF;
+import optifine.GuiOptionSliderOF;
+import optifine.GuiOtherSettingsOF;
+import optifine.GuiPerformanceSettingsOF;
+import optifine.GuiQualitySettingsOF;
+import optifine.Lang;
+import optifine.TooltipManager;
+import shadersmod.client.GuiShaders;
+
+public class GuiSillyOptions extends GuiScreen
+{
+    private GuiScreen parentGuiScreen;
+    protected String screenTitle = "the silliest settings in the west";
+    private GameSettings guiGameSettings;
+
+    /** An array of all of GameSettings.Options's video options. */
+    private static GameSettings.Options[] sillyOptions = new GameSettings.Options[] {GameSettings.Options.QUICKPLACE};
+    private static final String __OBFID = "CL_00000718";
+    private TooltipManager tooltipManager = new TooltipManager(this);
+
+    public GuiSillyOptions(GuiScreen par1GuiScreen, GameSettings par2GameSettings)
+    {
+        this.parentGuiScreen = par1GuiScreen;
+        this.guiGameSettings = par2GameSettings;
+    }
+
+    /**
+     * Adds the buttons (and other controls) to the screen in question.
+     */
+    public void initGui()
+    {
+        this.screenTitle = "the silliest settings in the west";
+        this.buttonList.clear();
+        int y;
+
+        for (y = 0; y < sillyOptions.length; ++y)
+        {
+            GameSettings.Options x = sillyOptions[y];
+
+            if (x != null)
+            {
+                int x1 = this.width / 2 - 155 + y % 2 * 160;
+//                int y1 = this.height / 6 + 21 * (y / 2) - 12;
+//
+//                if (x.getEnumFloat())
+//                {
+//                    this.buttonList.add(new GuiOptionSliderOF(x.returnEnumOrdinal(), x1, y1, x));
+//                }
+//                else
+//                {
+//                    this.buttonList.add(new GuiOptionButtonOF(x.returnEnumOrdinal(), x1, y1, x, this.guiGameSettings.getKeyBinding(x)));
+//                }
+            }
+        }
+
+        y = this.height / 6 + 21 * (sillyOptions.length / 2) - 12;
+        boolean var5 = false;
+        int var6 = this.width / 2 - 155 + 0;
+        this.buttonList.add(new GuiOptionButton(2, var6, y, "Quick Place"));
+        var6 = this.width / 2 - 155 + 0;
+        y += 21;
+        this.buttonList.add(new GuiButton(200, this.width / 2 - 100, this.height / 6 + 168 + 11, I18n.format("gui.done", new Object[0])));
+    }
+
+    protected void actionPerformed(GuiButton guibutton)
+    {
+        if (guibutton.enabled)
+        {
+            if (guibutton.id < 200 && guibutton instanceof GuiOptionButton)
+            {
+                this.settings.setOptionValue(((GuiOptionButton)guibutton).returnEnumOptions(), 1);
+                guibutton.displayString = this.settings.getKeyBinding(GameSettings.Options.getEnumOptions(guibutton.id));
+            }
+
+            if (guibutton.id == 200)
+            {
+                this.mc.gameSettings.saveOptions();
+                this.mc.displayGuiScreen(this.prevScreen);
+            }
+        }
+    }
+
+    /**
+     * Draws the screen and all the components in it. Args : mouseX, mouseY, renderPartialTicks
+     */
+    public void drawScreen(int x, int y, float z)
+    {
+        this.drawDefaultBackground();
+        this.drawCenteredString(this.fontRendererObj, this.screenTitle, this.width / 2, 15, 16777215);
+        String name = Config.getName();
+
+        this.drawString(this.fontRendererObj, name, 2, this.height - 10, 8421504);
+        String verMc = "Minecraft 1.8";
+        int lenMc = this.fontRendererObj.getStringWidth(verMc);
+        this.drawString(this.fontRendererObj, verMc, this.width - lenMc - 2, this.height - 10, 8421504);
+        super.drawScreen(x, y, z);
+        this.tooltipManager.drawTooltips(x, y, this.buttonList);
+    }
+
+    public static int getButtonWidth(GuiButton btn)
+    {
+        return btn.width;
+    }
+
+    public static int getButtonHeight(GuiButton btn)
+    {
+        return btn.height;
+    }
+
+    public static void drawGradientRect(GuiScreen guiScreen, int left, int top, int right, int bottom, int startColor, int endColor)
+    {
+        guiScreen.drawGradientRect(left, top, right, bottom, startColor, endColor);
+    }
+}

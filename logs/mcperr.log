@@ -1,0 +1,3 @@
+12:21:27 - "scalac" is not found on the PATH.  Scala files will not be recompiled
+12:21:30 - !! Modified jar detected. Unpredictable results !!
+12:25:46 - !! Missing server jar file. Aborting !!

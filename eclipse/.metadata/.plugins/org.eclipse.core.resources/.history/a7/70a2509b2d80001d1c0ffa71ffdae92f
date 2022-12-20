@@ -1,0 +1,15 @@
+
+public class DiscordRP {
+	private boolean running = true;
+	public void start(){
+	}
+	
+	public void shutdown() {
+		
+	}
+	
+	public void update(String firstLine, String secondLine) {
+		
+	}
+
+}

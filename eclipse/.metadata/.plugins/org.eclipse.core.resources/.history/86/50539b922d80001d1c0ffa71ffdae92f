@@ -1,0 +1,12 @@
+
+public class DiscordRP {
+	public void start(){
+	}
+	public void shutdown() {
+		
+	}
+	public void update(String firstLine, String secondLine) {
+		
+	}
+
+}
